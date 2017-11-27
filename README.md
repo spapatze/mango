@@ -38,10 +38,10 @@ A person, let's call him Alex, goes to the supermarket to buy a mango. There, Al
 What if we found a place where we could store all the information. Then, we could just give read access to Alex.
 Here comes the blockchain. We will use the blockchain as a database.
 
-Questions- Answers:
+#### Questions- Answers:
 
-- Q: Who will store the information on the blockchain? 
-- A: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
+- Q1: Who will store the information on the blockchain? 
+- A1: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
 
 - Q: Why someone do all this work? How can we convince (persuade) them to do all this work?
 
