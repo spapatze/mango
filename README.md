@@ -22,6 +22,10 @@ Geth node.
 - geth attach ipc:/home/tutten/.rinkeby/geth.ipc
 - admin.startRPC("127.0.0.1", 8545, "*", "eth,net,web3")  // Geth console.
 
+## Using the official network.
+
+...
+
 ## The roles
 
 1. The farmer.
