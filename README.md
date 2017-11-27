@@ -20,7 +20,8 @@ Geth node.
 
 ### Geth console.
 - geth attach ipc:/home/tutten/.rinkeby/geth.ipc
-- admin.startRPC("127.0.0.1", 8545, "*", "eth,net,web3")  // Attention.
+
+- > admin.startRPC("127.0.0.1", 8545, "*", "eth,net,web3")  // Attention.
 
 ## The roles
 
