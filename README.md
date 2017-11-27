@@ -40,7 +40,8 @@ Here comes the blockchain. We will use the blockchain as a database.
 
 Questions- Answers:
 
-- Who will store the information on the blockchain? The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
+- Who will store the information on the blockchain? 
+The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
 
 - Why someone do all this work? How can we convince (persuade) them to do all this work?
 
@@ -55,3 +56,7 @@ tamper-proof, no revision
 1. The farmer.
 2. The driver.
 3. The factory, aka lab.
+
+### 4.4. Data Stored.
+
+1. THe
