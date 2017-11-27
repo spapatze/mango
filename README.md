@@ -25,6 +25,10 @@ Geth node.
 
 To be continued.
 
+### 3.1 Geth Node Init.
+### 3.2 Running the blockchain.
+### 3.3 Geth console.
+
 ## 4. The application.
 
 ### 4.1 Intro
