@@ -23,8 +23,6 @@ Geth node.
 
 ## 3. Using the official network.
 
-To be continued.
-
 ### 3.1. Geth Node Init.
 ### 3.2. Running the blockchain.
 ### 3.3. Geth console.
@@ -43,9 +41,13 @@ Here comes the blockchain. We will use the blockchain as a database.
 - Q1: Who will store the information on the blockchain? 
 - A1: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
 
-- Q: Why someone do all this work? How can we convince (persuade) them to do all this work?
+- Q2: Who can have access to the information?
+- A2: The blockchain is public. The information is there to get.
 
-- Q: ?
+- Q3:
+- A3: 
+
+- Q: Why someone do all this work? How can we convince (persuade) them to do all this work? [Use the blockchain, store information ont the blockchain, etc]
 
 ### 4.2. Why blockchain?
 
@@ -59,4 +61,4 @@ tamper-proof, no revision
 
 ### 4.4. Data Stored.
 
-1. THe
+1. The 
