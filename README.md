@@ -33,19 +33,19 @@ To be continued.
 
 ### 4.1. Intro, aka the problem.
 
-A person ,let's call him Alex, goes to the supermarket to buy a mango. There, Alex finds himself between different choices; mangos from different places, from different farmers and different farming practices. How can Alex choose between these? He will go for the cheapest, or for the organic, etc.? What if Alex could access some information about the mangos, like the farmer or the place? Then his choice would become easier.
+A person, let's call him Alex, goes to the supermarket to buy a mango. There, Alex finds himself between different choices; mangos from different places, from different farmers and different farming practices. How can Alex choose between these? He will go for the cheapest, or for the organic, etc.? What if Alex could access some information about the mangos, like the farmer or the place? Then his choice would become easier.
 
 What if we found a place where we could store all the information. Then, we could just give read access to Alex.
 Here comes the blockchain. We will use the blockchain as a database.
 
 Questions- Answers:
 
-- Who will store the information on the blockchain? 
-The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
+- Q: Who will store the information on the blockchain? 
+- A: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
 
-- Why someone do all this work? How can we convince (persuade) them to do all this work?
+- Q: Why someone do all this work? How can we convince (persuade) them to do all this work?
 
-- 
+- Q: ?
 
 ### 4.2. Why blockchain?
 
