@@ -23,7 +23,7 @@ Geth node.
 
 ## Using the official network.
 
-...
+To be continued.
 
 ## The roles
 
