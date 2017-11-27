@@ -1,0 +1,96 @@
+<!doctype>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The interface who helps the driver to connect to the running blockchain.">
+    <meta name="author" content="Spyridon Paptz">
+    <title>Driver's Interface</title>
+
+    <!--
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./Icons/spyros.png">
+    -->
+
+    <script type="text/javascript" src="./Javascript/bignumber.min.js"></script>
+    <script type="text/javascript" src="./Javascript/web3-light.js"></script>
+    <script type="text/javascript" src="./Javascript/driver.js"></script>
+    <link rel="stylesheet" href="./CSS/driver.css">
+</head>
+<body>
+
+    <div class="files">
+        <p> If you haven't already deploy your contract, then click
+            <a href="deploy.html">here</a>.<br>
+            If you want to go to farmer's interface, then click
+            <a href="farmer.html">here</a>.<br>
+            If you want to go to lab's interface, then click
+            <a href="lab.html">here</a>.<br>
+            If you want to see all available info about the product, then click
+            <a href="logger.html">here</a>.
+        </p>
+
+        <div id="startE">
+            <span><strong>Input Contract's Address: </strong></span><input type="text" id="contract" size="32">
+            <button type="button" onClick="watchEverything()">Start everything</button>
+        </div>
+    </div>
+
+    <div class="inter">
+        <div class="left">
+            <h4>General</h4>
+            <div id="address">Contract's address:</div>
+            <div id="owner">Owner's address:</div>
+            <div id="creation">Creation's block number:</div>
+
+            <h4>Farmer's Interface</h4>
+
+            <div id="farmer">Farmer's address:</div>
+            <div id="lot">Lot ID:</div>
+            <div id="crop">Crop ID:</div>
+            <div id="kg">Quantity (in kg):</div>
+            <div id="farmLog">Farmer's Log:</div>
+            <div id="requireTransfer">Require Transfer: </div>
+
+            <h4>Driver's Interface</h4>
+
+            <div id="driver">Driver's address:</div>
+            <div id="driverLog">Driver's Log:</div>
+            <div id="temC">Container's temperature:</div>
+            <div id="transit">In Driver's Possesion: </div>
+            <div id="start">Start: </div>
+            <div id="end">End: </div>
+        </div>
+
+        <div class="right">
+            <h4>The interface</h4>
+
+            <div>Enter container's temperature (in Celsius):
+                <input type="text" id="temperature" size="3">
+                <button type="Submit" onClick="setTemC()">Enter</button>
+            </div>
+            <br>
+
+            <div>Driver's Log: <br><textarea rows="4" cols="50" id="log">All about the lot. Tell me. I am waiting...</textarea></div>
+            <div>
+                <button type="Submit" onClick="setDriverLog()">Set farmer's log</button>
+            </div>
+
+            <br>
+            <div>Give lab's address:
+                <input type="text" id="lab" size="32">
+                <button type="Submit" onClick="transferToLab()">Transfer Ownship</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="pastLogs">
+        <h4>History</h4>
+        <div id="history">
+        </div>
+    </div>
+
+
+</body>
+</html>

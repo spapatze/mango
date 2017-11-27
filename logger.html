@@ -1,0 +1,69 @@
+<!doctype>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The interface who helps everyone to gain access to the running blockchain.">
+    <meta name="author" content="Spyridon Paptz">
+    <title>Not A Interface</title>
+
+    <script type="text/javascript" src="./Javascript/bignumber.min.js"></script>
+    <script type="text/javascript" src="./Javascript/web3-light.js"></script>
+    <script type="text/javascript" src="./Javascript/logger.js"></script>
+</head>
+
+<body>
+
+    <p> If you haven't already deploy your contract, then click
+        <a href="deploy.html">here</a>.<br>
+        If you want to go to farmer's interface, then click
+        <a href="farmer.html">here</a>.<br>
+        If you want to go to driver's interface, then click
+        <a href="driver.html">here</a>.<br>
+        If you want to go to lab's interface, then click
+        <a href="lab.html">here</a>.
+    </p>
+
+    <div id="startE">
+        <span><strong>Input Contract's Address: </strong></span><input type="text" id="contract" size="32">
+        <button type="button" onClick="watchEverything()">Start everything</button>
+    </div>
+
+    <h4>Account's Balance</h4>
+    <div id="coinbase">Account's Address:</div>
+    <div id="original">Original Balance:</div>
+    <div id="current">Current Balance:</div>
+    <div id="diff">Difference:</div>
+
+    <h4>General</h4>
+    <div id="address">Contract's address:</div>
+    <div id="owner">Owner's address:</div>
+    <div id="creation">Creation's block number:</div>
+
+    <h4>Farmer's Interface</h4>
+
+    <div id="farmer">Farmer's address:</div>
+    <div id="lot">Lot ID:</div>
+    <div id="crop">Crop ID:</div>
+    <div id="kg">Quantity (in kg):</div>
+    <div id="farmLog">Farmer's Log:</div>
+    <div id="requireTransfer">Require Transfer: </div>
+
+    <h4>Driver's Interface</h4>
+
+    <div id="driver">Driver's address:</div>
+    <div id="driverLog">Driver's Log:</div>
+    <div id="temC">Container's temperature:</div>
+    <div id="transit">In Driver's Possesion: </div>
+    <div id="start">Start: </div>
+    <div id="end">End: </div>
+
+    <h4>Lab's Interface</h4>
+
+    <div id="lab">Lab's address:</div>
+    <div id="labLog">Lab's Log:</div>
+    <div id="certificate">Certified:</div>
+    <div id="transit2">In Driver's Possesion: </div>
+
+</body>
+</html>

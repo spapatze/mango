@@ -1,0 +1,42 @@
+<!doctype>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="The interface who helps the farmer to connect to the running blockchain.">
+    <meta name="author" content="Spyridon Paptz">
+    <title>Deploy Contract</title>
+
+    <script type="text/javascript" src="./Javascript/bignumber.min.js"></script>
+    <script type="text/javascript" src="./Javascript/web3-light.js"></script>
+    <script type="text/javascript" src="./Javascript/deploy.js"></script>
+    <link rel="stylesheet" href="./CSS/deploy.css">
+</head>
+
+<body>
+
+    <div class="files">
+        <p> If you want to go to farmer's interface, then click
+            <a href="farmer.html">here</a>.<br>
+            If you want to go to driver's interface, then click
+            <a href="driver.html">here</a>.<br>
+            If you want to go to lab's interface, then click
+            <a href="lab.html">here</a>.<br>
+            If you want to see all available info about the product, then click
+            <a href="logger.html">here</a>.
+        </p>
+    </div>
+
+    <div class="lot">
+        <h4>Farm Creation</h4>
+        <div>Crop:
+            <input type="text" placeholder="Apples, mango, etc" id="crop">
+            <button  id='create' type="Submit" onClick="createContract()">Create contract</button>
+        </div>
+
+        <div id="address"></div>
+        <div id="status"></div>
+    </div>
+
+</body>
+</html>
