@@ -42,10 +42,13 @@ Here comes the blockchain. We will use the blockchain as a database.
 - A1: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
 
 - Q2: Who can have access to the information?
-- A2: The blockchain is public. The information is there to get.
+- A2: The blockchain is public. The information is there to get. 
 
-- Q3:
-- A3: 
+- Q3: How can the people involved gain access to blockchain?
+- A3: We have created the some interfaces. Using the appropiate interface.
+
+- Q4:
+- A4: 
 
 - Q: Why someone do all this work? How can we convince (persuade) them to do all this work? [Use the blockchain, store information ont the blockchain, etc]
 
@@ -61,4 +64,26 @@ tamper-proof, no revision
 
 ### 4.4. Data Stored.
 
-1. The 
+Everyone involved have to create the account to write data on the blockchain. The account's address is unique so we are using the address to identify the different parties.
+
+The farmer's data:
+- Farmer ID (address).
+- Farm ID (lot ID).
+- Crop ID (mango, tanjarines, etc).
+- Log (string).
+- Quantity in kg (uint).
+- Require transfer? (bool).
+
+The driver's data:
+- Driver ID (address).
+- Container's temperature (int).
+- Log (string).
+- From when to when? [Product in his possesion] (timestamp x 2)
+- Product in transit? [Product in his possesion] (bool)
+
+The lab's data:
+- Lab ID (address).
+- Log (string).
+- Product Certified? (bool)
+
+
