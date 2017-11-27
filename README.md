@@ -1,2 +1,2 @@
 # mango
-Blockchain meets the Supply Chain
+Blockchain Meets The Supply Chain
