@@ -4,11 +4,10 @@ Blockchain Meets The Supply Chain
 ## Ethereum Blockchain.
 
 Geth node.
-
-## Testing using Rinkeby: Ethereum Testnet.
-
 1. Archive node: Retains all historical data.
 2. Full node: Retains recent data only. [Historical data can only be queried from that block onward.]
+
+## Testing using Rinkeby: Ethereum Testnet.
 
 ### Geth Node Init.
 
