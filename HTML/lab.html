@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="The interface who helps the farmer to connect to the running blockchain.">
+    <meta name="description" content="The interface who helps the driver to connect to the running blockchain.">
     <meta name="author" content="Spyridon Paptz">
-    <title>Farmer's Interface</title>
+    <title>Lab's Interface</title>
 
-    <script type="text/javascript" src="./Javascript/bignumber.min.js"></script>
-    <script type="text/javascript" src="./Javascript/web3-light.js"></script>
-    <script type="text/javascript" src="./Javascript/farmer.js"></script>
-    <link rel="stylesheet" href="./CSS/farmer.css">
+    <script type="text/javascript" src="../Javascript/bignumber.min.js"></script>
+    <script type="text/javascript" src="../Javascript/web3-light.js"></script>
+    <script type="text/javascript" src="../Javascript/lab.js"></script>
+    <link rel="stylesheet" href="../CSS/lab.css">
 </head>
 
 <body>
@@ -18,10 +18,10 @@
     <div class="files">
         <p> If you haven't already deploy your contract, then click
             <a href="deploy.html">here</a>.<br>
+            If you want to go to farmer's interface, then click
+            <a href="farmer.html">here</a>.<br>
             If you want to go to driver's interface, then click
             <a href="driver.html">here</a>.<br>
-            If you want to go to lab's interface, then click
-            <a href="lab.html">here</a>.<br>
             If you want to see all available info about the product, then click
             <a href="logger.html">here</a>.
         </p>
@@ -47,32 +47,37 @@
             <div id="kg">Quantity (in kg):</div>
             <div id="farmLog">Farmer's Log:</div>
             <div id="requireTransfer">Require Transfer: </div>
+
+            <h4>Driver's Interface</h4>
+
+            <div id="driver">Driver's address:</div>
+            <div id="driverLog">Driver's Log:</div>
+            <div id="temC">Container's temperature:</div>
+            <div id="transit">In Driver's Possesion: </div>
+            <div id="start">Start: </div>
+            <div id="end">End: </div>
+
+            <h4>Lab's Interface</h4>
+
+            <div id="lab">Lab's address:</div>
+            <div id="labLog">Lab's Log:</div>
+            <div id="certificate">Certified:</div>
+            <div id="transit2">In Driver's Possesion: </div>
         </div>
 
         <div class="right">
             <h4>The interface</h4>
 
-            <div>Enter Quantity in Kg:
-                <input type="text" id="quantKg" size="3">
-                <button type="Submit" onClick="setQuantity()">Enter</button>
-            </div>
-            <br>
-
-            <div>Farmer's Log: <br><textarea rows="4" cols="50" id="log">All about the lot. Tell me. I am waiting...</textarea></div>
+            <div>Lab's Log: <br><textarea rows="4" cols="50" id="log">All about the lot. Tell me. I am waiting...</textarea></div>
             <div>
-                <button type="Submit" onClick="setFarmerLog()">Set farmer's log</button>
+                <button type="Submit" onClick="setLabLog()">Set farmer's log</button>
             </div>
             <br>
 
-            <div id='inform'>Inform driver:
-                <button type="Submit" onClick="requireTransfer()">Pick up</button>
-            </div>
-            <br>
-
-            <div>Give driver's address:
-                <input type="text" id="driver" size="32">
-                <button type="Submit" onClick="transferToDriver()">Transfer Ownship</button>
-            </div>
+            <div id='cert'>Certified:
+               <button type="Submit" onClick="setYes()">Yes</button>
+               <button type="Submit" onClick="setNo()">No</button>
+           </div>
 
         </div>
     </div>
