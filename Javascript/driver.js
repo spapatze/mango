@@ -61,9 +61,15 @@ function watchEverything() {
     document.getElementById('temC').innerText = "Container's temperature: " + res10;
 
     var res11 = mangoInstance.getStart.call();
+    if (res11){
+        res11 = calculateTS(res11);
+    }
     document.getElementById('start').innerText = "Start: " + res11;
 
     var res12 = mangoInstance.getEnd.call();
+    if (res12){
+        res12 = calculateTS(res12);
+    }
     document.getElementById('end').innerText = "End: " + res12;
 
     var res13 = mangoInstance.getInTransit.call();
@@ -108,9 +114,15 @@ function watchEverything() {
         document.getElementById('temC').innerText = "Container's temperature: " + res10;
 
         res11 = mangoInstance.getStart.call();
+        if (res11){
+            res11 = calculateTS(res11);
+        }
         document.getElementById('start').innerText = "Start: " + res11;
 
         res12 = mangoInstance.getEnd.call();
+        if (res12){
+            res12 = calculateTS(res12);
+        }
         document.getElementById('end').innerText = "End: " + res12;
 
         res13 = mangoInstance.getInTransit.call();
