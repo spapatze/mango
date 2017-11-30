@@ -20,9 +20,9 @@ contract Ownable {
     }
 
     // Change Ownership
-    function transferOwnership(address _account) onlyOwner() {
-        owner = _account;
-    }
+    //function transferOwnership(address _account) onlyOwner() {
+    //    owner = _account;
+    //}
 
 }
 
@@ -48,26 +48,23 @@ contract Mango is Ownable, Destructible {
     // farmer
     address public farmer;
     string public cropId;
-    string public farmerLog;
     uint public quantity; // kg
     event SetFarmerLog(string log, uint time);
 
     // transfer
-    bool public requireTransfer = false;
-    bool public inTransit = false;
+    bool public informedDriver;
+    bool public inTransit;
 
     // driver
     address public driver;
     uint public start;
     uint public end;
-    int8 public temC; // [-128, 127]
-    string public driverLog;
+    int8 public temC;
     event SetDriverLog(string log, uint time);
 
     // lab
     address public lab;
     bool public certificate;
-    string public labLog;
     event SetLabLog(string log, uint time);
 
     function Mango(string _crop) {
@@ -79,7 +76,6 @@ contract Mango is Ownable, Destructible {
     // Set
     function setFarmerLog(string _log) public onlyBy(farmer) {
         SetFarmerLog(_log, now);
-        farmerLog = _log;
     }
 
     function setQuantity(uint _quantity) public onlyBy(farmer) {
@@ -87,12 +83,11 @@ contract Mango is Ownable, Destructible {
     }
 
     function requireTransfer() public onlyBy(farmer) {
-        requireTransfer = true;
+        informedDriver = true;
     }
 
     function setDriverLog(string _log) public onlyBy(driver) {
         SetDriverLog(_log, now);
-        driverLog = _log;
     }
 
     function setTemC(int8 _temC) public onlyBy(driver) {
@@ -101,85 +96,18 @@ contract Mango is Ownable, Destructible {
 
     function setLabLog(string _log) public onlyBy(lab) {
       SetLabLog(_log, now);
-      labLog = _log;
     }
 
     function setCertificate(bool _cert) public onlyBy(lab) {
         certificate = _cert;
     }
 
-    // Get
-    function getCreationBlock() constant returns (uint) {
-        return creationBlock;
-    }
-
-    function getFarmer() constant returns (address) {
-        return farmer;
-    }
-
-    function getLotId() constant returns (address) {
-        return address(this);
-    }
-
-    function getCropId() constant returns (string) {
-        return cropId;
-    }
-
-    function getFarmerLog() constant returns (string) {
-        return farmerLog;   // contract to contract cant return string?
-    }
-
-    function getQuantity() constant returns (uint) {
-        return quantity;   // contract to contract cant return string?
-    }
-
-    function getRequireTransfer() constant returns (bool) {
-        return requireTransfer;
-    }
-
-    function getInTransit() constant returns (bool) {
-        return inTransit;
-    }
-
-    function getDriver() constant returns (address) {
-        return driver;
-    }
-
-    function getDriverLog() constant returns (string) {
-        return driverLog;
-    }
-
-    function getStart() constant returns (uint) {
-        return start;
-    }
-
-    function getEnd() constant returns (uint) {
-        return end;
-    }
-
-    function getTemC() constant returns (int8) {
-        return temC;
-    }
-
-    function getLab() constant returns (address) {
-        return lab;
-    }
-
-    function getCertificate() constant returns (bool) {
-        return certificate;
-    }
-
-    function getLabLog() constant returns (string) {
-        return labLog;
-    }
-
-    // Change Ownership
     function transferToDriver(address _account) onlyBy(farmer) {
         owner = _account;
         driver = _account;
         start = now;
         inTransit = true;
-        requireTransfer = false;
+        informedDriver = false;
     }
 
     function transferToLab(address _account) onlyBy(driver) {
