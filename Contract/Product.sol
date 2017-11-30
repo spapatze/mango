@@ -19,11 +19,6 @@ contract Ownable {
         _;
     }
 
-    // Change Ownership
-    //function transferOwnership(address _account) onlyOwner() {
-    //    owner = _account;
-    //}
-
 }
 
 contract Destructible is Ownable {
@@ -53,7 +48,6 @@ contract Mango is Ownable, Destructible {
 
     // transfer
     bool public informedDriver;
-    bool public inTransit;
 
     // driver
     address public driver;
@@ -106,7 +100,6 @@ contract Mango is Ownable, Destructible {
         owner = _account;
         driver = _account;
         start = now;
-        inTransit = true;
         informedDriver = false;
     }
 
@@ -114,7 +107,6 @@ contract Mango is Ownable, Destructible {
         owner = _account;
         lab = _account;
         end = now;             // block.timestamp == now
-        inTransit = false;
     }
 
 }

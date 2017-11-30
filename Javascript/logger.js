@@ -25,17 +25,7 @@ function watchEverything() {
     document.getElementById("coinbase").innerText = "Account's Address: " + coinbase;
     document.getElementById("original").innerText = "Original Balance: " + originalBalance + ' watching...';
 
-    // Contract
-    if (document.getElementById("contract").value == ""){
-        addr = "0x25c8f8797d95770241a668eb44a924673f251ad9";
-    }
-    else{
-        addr = document.getElementById("contract").value;
-    }
-
-    var mangoContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_quantity","type":"uint256"}],"name":"setQuantity","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"cropId","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"creationBlock","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"quantity","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_log","type":"string"}],"name":"setFarmerLog","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"temC","outputs":[{"name":"","type":"int8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"lab","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"certificate","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"requireTransfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_log","type":"string"}],"name":"setLabLog","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"driver","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"destroy","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_cert","type":"bool"}],"name":"setCertificate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"start","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_temC","type":"int8"}],"name":"setTemC","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"inTransit","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_account","type":"address"}],"name":"transferToLab","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"farmer","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_log","type":"string"}],"name":"setDriverLog","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"end","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_recipient","type":"address"}],"name":"destroyAndSend","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_account","type":"address"}],"name":"transferToDriver","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_crop","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"log","type":"string"},{"indexed":false,"name":"time","type":"uint256"}],"name":"SetFarmerLog","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"log","type":"string"},{"indexed":false,"name":"time","type":"uint256"}],"name":"SetDriverLog","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"log","type":"string"},{"indexed":false,"name":"time","type":"uint256"}],"name":"SetLabLog","type":"event"}]);
-
-    mangoInstance = mangoContract.at(addr);
+    mangoInstance = createContract();
 
     // General
     document.getElementById('address').innerText = "Contract's address: " + addr;
@@ -69,22 +59,26 @@ function watchEverything() {
     document.getElementById('temC').innerText = "Container's temperature: " + res10;
 
     var res11 = mangoInstance.start.call();
-    if (res11){
+    if (res11.e){
         res11 = calculateTS(res11);
     }
     document.getElementById('start').innerText = "Start: " + res11;
 
     var res12 = mangoInstance.end.call();
-    if (res12){
+    if (res12.e){
         res12 = calculateTS(res12);
     }
     document.getElementById('end').innerText = "End: " + res12;
 
-    var res13 = mangoInstance.inTransit.call();
+    // if driver == owner, then inTransit = true
+    // inTransit = res13
+    var res13 = false;
+    if (res == res9) res13 = true;
     document.getElementById('transit').innerText = "In Driver's Possesion: " + res13;
-    document.getElementById('transit2').innerText = "In Driver's Possesion: " + res13;
 
     // Lab
+    document.getElementById('transit2').innerText = "In Driver's Possesion: " + res13;
+
     var res15 = mangoInstance.lab.call();
     document.getElementById('lab').innerText = "Lab's address: " + res15;
 
@@ -127,18 +121,21 @@ function watchEverything() {
         document.getElementById('temC').innerText = "Container's temperature: " + res10;
 
         res11 = mangoInstance.start.call();
-        if (res11){
+        if (res11.e){
             res11 = calculateTS(res11);
         }
         document.getElementById('start').innerText = "Start: " + res11;
 
         res12 = mangoInstance.end.call();
-        if (res12){
+        if (res12.e){
             res12 = calculateTS(res12);
         }
         document.getElementById('end').innerText = "End: " + res12;
 
-        res13 = mangoInstance.inTransit.call();
+        // if driver == owner, then inTransit = true
+        // inTransit = res13
+        res13 = false;
+        if (res == res9) res13 = true;
         document.getElementById('transit').innerText = "In Driver's Possesion: " + res13;
 
         // Lab
@@ -151,4 +148,10 @@ function watchEverything() {
         document.getElementById('certificate').innerText = "Certified: " + res17;
     });
 
+}
+
+function calculateTS(_timestamp){
+    var date = new Date(_timestamp * 1000);
+    var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
+    return formattedDate;
 }
