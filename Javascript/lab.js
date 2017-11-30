@@ -148,47 +148,19 @@ function watchEverything() {
         document.getElementById('certificate').innerText = "Certified: " + res17;
     });
 
-    var event = mangoInstance.SetLabLog({}, function(error, result) {
-        if (!error) {
-            console.log(result);
-            var hist = document.getElementById('history');
-            var newP = document.createElement('P');
-            hist.appendChild(newP);
-            var msg = "\"" + result.args.log + "\"";
-            var content = document.createTextNode(msg);
-            newP.appendChild(content);
-
-            var date = new Date(result.args.time * 1000);
-            var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
-            var msg2 = " at " + formattedDate + ".";
-
-            var newSpan = document.createElement('SPAN');
-            var content2 = document.createTextNode(msg2);
-            newSpan.appendChild(content2);
-            newP.appendChild(newSpan);
-        }
-    });
-
     mangoInstance.SetLabLog({}, { fromBlock: res2, toBlock: 'latest' }).get(function (error, result) {
         if (!error) {
             console.log(result);
             for(var i = 0; i < result.length ; i++){
-                var hist = document.getElementById('history');
-                var newP = document.createElement('P');
-                hist.appendChild(newP);
-                var msg = "\"" + result[i].args.log + "\"";
-                var content = document.createTextNode(msg);
-                newP.appendChild(content);
-
-                var date = new Date(result[i].args.time * 1000);
-                var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
-                var msg2 = " at " + formattedDate + ".";
-
-                var newSpan = document.createElement('SPAN');
-                var content2 = document.createTextNode(msg2);
-                newSpan.appendChild(content2);
-                newP.appendChild(newSpan);
+                logger(result[i]);
             }
+        }
+    });
+
+    var event = mangoInstance.SetLabLog({}, function(error, result) {
+        if (!error) {
+            console.log(result);
+            logger(result);
         }
     });
 
@@ -216,4 +188,27 @@ function setNo() {
     console.log('false');
     mangoInstance.setCertificate.sendTransaction(false , {from: web3.eth.accounts[2]});
 
+}
+
+function calculateTS(_timestamp){
+    var date = new Date(_timestamp * 1000);
+    var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
+    return formattedDate;
+}
+
+function logger(result) {
+    var hist = document.getElementById('history');
+    var newP = document.createElement('P');
+    hist.appendChild(newP);
+    var msg = "\"" + result.args.log + "\"";
+    var content = document.createTextNode(msg);
+    newP.appendChild(content);
+
+    var formattedDate = calculateTS(result.args.time);
+    var msg2 = " at " + formattedDate + ".";
+
+    var newSpan = document.createElement('SPAN');
+    var content2 = document.createTextNode(msg2);
+    newSpan.appendChild(content2);
+    newP.appendChild(newSpan);
 }
