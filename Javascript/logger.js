@@ -27,7 +27,7 @@ function watchEverything() {
 
     // Contract
     if (document.getElementById("contract").value == ""){
-        addr = "0x4c7f50bab2ba259d2508e55571597cf3a0852040";
+        addr = "0x25c8f8797d95770241a668eb44a924673f251ad9";
     }
     else{
         addr = document.getElementById("contract").value;
