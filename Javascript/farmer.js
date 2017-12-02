@@ -156,7 +156,6 @@ function calcDatetoTS(_date) {
     return _timestamp;
 }
 
-
 // _timestamp in sec
 function calculateTS(_timestamp){
     var date = new Date(_timestamp * 1000);

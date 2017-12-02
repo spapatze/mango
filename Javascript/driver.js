@@ -9,7 +9,7 @@ if (typeof web3 !== 'undefined') {
 
 var mangoInstance;
 var addr;
-var creationBlock;
+var creationBlock = 0;
 
 function watchEverything() {
 
@@ -194,7 +194,6 @@ function calculateTS(_timestamp){
     var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
     return formattedDate;
 }
-
 
 function logger(result) {
     var hist = document.getElementById('history');
