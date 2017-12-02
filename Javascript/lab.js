@@ -142,7 +142,7 @@ function watchEverything() {
         if (!error) {
             console.log(result);
             for(var i = 0; i < result.length ; i++){
-                logger(result[i]);
+                logger(result[i], 'history');
             }
         }
     });
@@ -150,7 +150,7 @@ function watchEverything() {
     var event = mangoInstance.SetLabLog({}, function(error, result) {
         if (!error) {
             console.log(result);
-            logger(result);
+            logger(result, 'history');
         }
     });
 

@@ -172,19 +172,3 @@ function watchEverything() {
     });
 
 }
-
-// input: date [format: YYYY-MM-DD]
-// output: timestamp [hour 08:00:00] in sec
-function calcDatetoTS(_date) {
-    _date = _date.split("-");
-    var _date = new Date(_date[0], _date[1]-1, _date[2], 8, 0, 0, 0);
-    var _timestamp = _date.getTime() / 1000;
-    return _timestamp;
-}
-
-// _timestamp in sec
-function calculateTS(_timestamp){
-    var date = new Date(_timestamp * 1000);
-    var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
-    return formattedDate;
-}
