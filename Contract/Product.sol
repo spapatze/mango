@@ -45,6 +45,7 @@ contract Mango is Ownable, Destructible {
     string public cropId;
     uint public quantity; // kg
     event SetFarmerLog(string log, uint time);
+    event RequireTransfer(string _cropId, uint _quantity, uint _time);
 
     // transfer
     bool public informedDriver;
@@ -76,8 +77,9 @@ contract Mango is Ownable, Destructible {
         quantity = _quantity;
     }
 
-    function requireTransfer() public onlyBy(farmer) {
+    function requireTransfer(uint _time) public onlyBy(farmer) {
         informedDriver = true;
+        RequireTransfer(cropId, quantity, _time);
     }
 
     function setDriverLog(string _log) public onlyBy(driver) {
