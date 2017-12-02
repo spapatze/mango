@@ -9,6 +9,7 @@ if (typeof web3 !== 'undefined') {
 
 var mangoInstance;
 var addr;
+var creationBlock;
 
 function watchEverything() {
 
@@ -24,6 +25,7 @@ function watchEverything() {
     document.getElementById('owner').innerText = "Owner's address: " + res;
 
     var res2 = mangoInstance.creationBlock.call();
+    creationBlock = res2;
     document.getElementById('creation').innerText = "Creation's block number: " + res2;
 
     // Farmer
@@ -113,7 +115,7 @@ function watchEverything() {
 
     });
 
-    mangoInstance.SetDriverLog({}, { fromBlock: res2, toBlock: 'latest' }).get(function (error, result) {
+    mangoInstance.SetDriverLog({}, { fromBlock: creationBlock, toBlock: 'latest' }).get(function (error, result) {
         if (!error) {
             console.log(result);
             for(var i = 0; i < result.length ; i++){
@@ -126,6 +128,28 @@ function watchEverything() {
         if (!error) {
             console.log(result);
             logger(result);
+        }
+    });
+
+    mangoInstance.RequireTransfer({}, { fromBlock: creationBlock, toBlock: 'latest' }).get(function (error, result) {
+        if (!error) {
+            // console.log(result);
+            var index = result.length - 1;
+            if (index >= 0) {
+                console.log(result[index]);
+                var _result = result[index].args._time;
+                var _date = calculateTS(_result); // function works on sec.
+                document.getElementById('whenTransfer').innerText = "When: " + _date;
+            }
+        }
+    });
+
+    var event = mangoInstance.RequireTransfer({}, function(error, result) {
+        if (!error) {
+            console.log(result);
+            var _result = result.args._time;
+            var _date = calculateTS(_result); // function works on sec.
+            document.getElementById('whenTransfer').innerText = "When: " + _date;
         }
     });
 
@@ -155,11 +179,22 @@ function setDriverLog() {
 
 }
 
+// input: date [format: YYYY-MM-DD]
+// output: timestamp [hour 08:00:00] in sec
+function calcDatetoTS(_date) {
+    _date = _date.split("-");
+    var _date = new Date(_date[0], _date[1]-1, _date[2], 8, 0, 0, 0);
+    var _timestamp = _date.getTime() / 1000;
+    return _timestamp;
+}
+
+// _timestamp in sec
 function calculateTS(_timestamp){
     var date = new Date(_timestamp * 1000);
     var formattedDate = (('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ', ' + ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear()) ;
     return formattedDate;
 }
+
 
 function logger(result) {
     var hist = document.getElementById('history');
