@@ -43,14 +43,14 @@ Here comes the blockchain. We will use the blockchain as a database.
 
 #### Questions- Answers:
 
-- Q1: Who will store the information on the blockchain? 
-- A1: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authority who certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 THe Roles].
+- Q1: Who will store the information on the blockchain?
+- A1: The mango's route from farmer to Alex includes many people or organisations, like the farmer, the driver, the factory, the supermarket, the authorities that certify the product. In our project, we assume that the people who will participate in the proccess are the described in paragraph [4.3 The Roles].
 
 - Q2: What kind of information is stored on the blockchain?
 - A2: See paragraph [4.4 Data Stored].
 
 - Q3: Who can have access to the information?
-- A3: The blockchain is public. The information is there to get. 
+- A3: The blockchain is public. The information is there to get.
 
 - Q4: How can the people involved gain access to blockchain?
 - A4: We have created the some interfaces. Using the appropiate interface, the different roles will have access to different read,write operations.
@@ -84,7 +84,6 @@ The driver's data:
 - Container's temperature (int).
 - Log (string).
 - From when to when? [Product in his possesion] (timestamp x 2)
-- Product in transit? [Product in his possesion] (bool)
 
 The lab's data:
 - Lab ID (address).
