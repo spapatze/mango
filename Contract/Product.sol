@@ -47,9 +47,6 @@ contract Mango is Ownable, Destructible {
     event SetFarmerLog(string log, uint time);
     event RequireTransfer(string _cropId, uint _quantity, uint _time);
 
-    // transfer
-    bool public informedDriver;
-
     // driver
     address public driver;
     uint public start;
