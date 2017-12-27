@@ -4,7 +4,7 @@ contract Ownable {
 
     address public owner; // possesor
 
-    function Ownable() {
+    function Ownable() public {
         owner = msg.sender;
     }
 
@@ -23,13 +23,13 @@ contract Ownable {
 
 contract Destructible is Ownable {
 
-    function Destructible() payable {}
+    function Destructible() public payable {}
 
-    function destroy() onlyOwner {
+    function destroy() public onlyOwner {
         selfdestruct(owner);
     }
 
-    function destroyAndSend(address _recipient) onlyOwner {
+    function destroyAndSend(address _recipient) public onlyOwner {
         selfdestruct(_recipient);
     }
 
@@ -59,7 +59,7 @@ contract Mango is Ownable, Destructible {
     bool public certificate;
     event SetLabLog(string log, uint time);
 
-    function Mango(string _crop) {
+    function Mango(string _crop) public {
         farmer = msg.sender;
         cropId = _crop;
         creationBlock = block.number;
@@ -75,7 +75,6 @@ contract Mango is Ownable, Destructible {
     }
 
     function requireTransfer(uint _time) public onlyBy(farmer) {
-        informedDriver = true;
         RequireTransfer(cropId, quantity, _time);
     }
 
@@ -95,14 +94,13 @@ contract Mango is Ownable, Destructible {
         certificate = _cert;
     }
 
-    function transferToDriver(address _account) onlyBy(farmer) {
+    function transferToDriver(address _account) public onlyBy(farmer) {
         owner = _account;
         driver = _account;
         start = now;
-        informedDriver = false;
     }
 
-    function transferToLab(address _account) onlyBy(driver) {
+    function transferToLab(address _account) public onlyBy(driver) {
         owner = _account;
         lab = _account;
         end = now;             // block.timestamp == now
