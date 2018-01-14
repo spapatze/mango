@@ -40,10 +40,6 @@ function watchEverything() {
     var res6 = mangoInstance.quantity.call();
     document.getElementById('kg').innerText = "Quantity (in kg): " + res6;
 
-    var res8 = mangoInstance.informedDriver.call();
-    //console.log(res8);
-    document.getElementById('requireTransfer').innerText = "Require Transfer: " + res8;
-
     web3.eth.filter('latest').watch(function() {
 
         res = mangoInstance.owner.call();
@@ -61,8 +57,6 @@ function watchEverything() {
         res6 = mangoInstance.quantity.call();
         document.getElementById('kg').innerText = "Quantity (in kg): " + res6;
 
-        res8 = mangoInstance.informedDriver.call();
-        document.getElementById('requireTransfer').innerText = "Require Transfer: " + res8;
     });
 
     mangoInstance.SetFarmerLog({}, { fromBlock: creationBlock, toBlock: 'latest' }).get(function (error, result) {
