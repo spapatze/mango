@@ -49,8 +49,8 @@ function watchEverything() {
     var res6 = mangoInstance.quantity.call();
     document.getElementById('kg').innerText = "Quantity (in kg): " + res6;
 
-    var res8 = mangoInstance.informedDriver.call();
-    document.getElementById('requireTransfer').innerText = "Require Transfer: " + res8;
+    //var res8 = mangoInstance.informedDriver.call();
+    //document.getElementById('requireTransfer').innerText = "Require Transfer: " + res8;
 
     // Driver
     var res9 = mangoInstance.driver.call();
@@ -111,8 +111,8 @@ function watchEverything() {
         res6 = mangoInstance.quantity.call();
         document.getElementById('kg').innerText = "Quantity (in kg): " + res6;
 
-        res8 = mangoInstance.informedDriver.call();
-        document.getElementById('requireTransfer').innerText = "Require Transfer: " + res8;
+        //res8 = mangoInstance.informedDriver.call();
+        //document.getElementById('requireTransfer').innerText = "Require Transfer: " + res8;
 
         // Driver
         res9 = mangoInstance.driver.call();
